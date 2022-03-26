@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostprocid
+spec:
+  hostPID: true
+  containers:
+  - name: hostprocid
+    image: nginx
+  - name: hostprocidshell
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - SYS_PTRACE
+    stdin: true
+    tty: true

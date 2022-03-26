@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privpod
+  labels:
+    app: privpod
+spec:
+  containers:
+  - name: privpod
+    image: nginx
+    ports:
+    - containerPort: 80
+    securityContext:
+      privileged: true

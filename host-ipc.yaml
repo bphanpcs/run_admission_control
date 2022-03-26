@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostipc
+spec:
+  hostIPC: true
+  containers:
+  - name: hostipc
+    image: nginx
+  - name: hostipcshell
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - SYS_PTRACE
+    stdin: true
+    tty: true
